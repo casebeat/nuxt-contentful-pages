@@ -8,7 +8,7 @@ import { useFetch, useRoute } from '#imports'
 export async function useFetchContentfulPageBySlug<T>(contentType: string) {
   const route = useRoute()
 
-  const routeSlugs = route.params.slugs
+  const routeSlugs = route.params.slug
 
   let slug = ''
 

@@ -8,8 +8,6 @@ export function getContentfulClient(): contentful.ContentfulClientApi<undefined>
     throw new Error('No options found in runtime config')
   }
 
-  console.log('options', options);
-
   const client = contentful.createClient({
     // This is the space ID. A space is like a project folder in Contentful terms
     space: options.spaceId,

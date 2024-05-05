@@ -1,6 +1,6 @@
 import renderContent from './renderContent'
 
-type EntryModel = unknown
+type EntryModel = {}
 
 function getFieldValue(field: any) {
   if (field?.nodeType === 'document') {
@@ -10,9 +10,9 @@ function getFieldValue(field: any) {
 }
 
 export const mapEntryFieldsToPage = <T>(entry: any): T => {
-  if (!entry) return Object as T
+  if (!entry) return {} as T
 
-  const fields: T = Object as T
+  const fields: T = {} as T
 
   for (const [key] of Object.entries(entry.fields)) {
     // check if entry.fields[key] is an array
