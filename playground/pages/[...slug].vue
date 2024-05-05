@@ -51,7 +51,7 @@
         </div>
       </nav>
   
-      <div class="col-lg-8 mx-auto p-4 py-md-5">
+      <div class="col-lg-8 mx-auto p-4 py-md-5" v-if="menu && menu[0].items">
         <main>
           <div v-if="false">
             {{ menu[0].items }}
