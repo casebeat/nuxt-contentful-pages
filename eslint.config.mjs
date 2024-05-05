@@ -9,10 +9,15 @@ export default createConfigForNuxt({
     // Rules for formatting
     stylistic: true,
   },
+
   dirs: {
     src: [
       './playground',
     ],
+  },
+}, {
+  rules: {
+    '@typescript-eslint/no-explicit-any': ['off', { ignoreRestArgs: true }],
   },
 })
   .append(

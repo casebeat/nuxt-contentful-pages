@@ -5,7 +5,7 @@ import { defu } from 'defu'
 export interface ModuleOptions {
   /**
    * Contentful Space ID
-   * @default process.env.CONTENTFUL_SPACE_ID   
+   * @default process.env.CONTENTFUL_SPACE_ID
    * @type string
    * @docs https://www.contentful.com/help/find-space-id/
    */
@@ -13,7 +13,7 @@ export interface ModuleOptions {
 
   /**
    * Contentful Space ID
-   * @default process.env.CONTENTFUL_ACCESS_TOKEN   
+   * @default process.env.CONTENTFUL_ACCESS_TOKEN
    * @type string
    * @docs https://www.contentful.com/developers/docs/references/authentication/
    */
