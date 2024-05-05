@@ -5,7 +5,7 @@ import { defu } from 'defu'
 export interface ModuleOptions {
   /**
    * Contentful Space ID
-   * @default process.env.CONTENTFUL_SPACE_ID   
+   * @default process.env.CONTENTFUL_SPACE_ID
    * @type string
    * @docs https://www.contentful.com/help/find-space-id/
    */
@@ -13,7 +13,7 @@ export interface ModuleOptions {
 
   /**
    * Contentful Space ID
-   * @default process.env.CONTENTFUL_ACCESS_TOKEN   
+   * @default process.env.CONTENTFUL_ACCESS_TOKEN
    * @type string
    * @docs https://www.contentful.com/developers/docs/references/authentication/
    */
@@ -31,16 +31,16 @@ export default defineNuxtModule<ModuleOptions>({
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
   },
   setup(options: ModuleOptions, nuxt: any) {
+    // Private runtimeConfig
+    nuxt.options.runtimeConfig.nuxtContentfulPages = defu(nuxt.options.runtimeConfig.nuxtContentfulPages, {
+      accessToken: options.accessToken,
+      spaceId: options.spaceId,
+    })
 
-        // Private runtimeConfig
-        // nuxt.options.runtimeConfig.nuxtContentfulPages = defu(nuxt.options.runtimeConfig.nuxtContentfulPages, {
-        //   accessToken: options.accessToken,
-        //   spaceId: options.spaceId,
-        // })
+    console.log('spaceId', options.spaceId);
 
-        
-    const resolver = createResolver(import.meta.url)    
-    
+    const resolver = createResolver(import.meta.url)
+
     addComponentsDir({
       path: resolver.resolve('runtime/components'),
     })

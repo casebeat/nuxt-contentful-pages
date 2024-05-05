@@ -1,36 +1,36 @@
-import renderContent from './renderContent';
+import renderContent from './renderContent'
 
-type EntryModel = {
-}
+type EntryModel = unknown
 
 function getFieldValue(field: any) {
   if (field?.nodeType === 'document') {
-    return renderContent(field);
+    return renderContent(field)
   }
-  return field;
+  return field
 }
 
-export const mapEntryFieldsToPage = <T>(entry: any) : T =>{
-  if (!entry) return {} as T;
+export const mapEntryFieldsToPage = <T>(entry: any): T => {
+  if (!entry) return Object as T
 
-  const fields: T = {} as T;
+  const fields: T = Object as T
 
   for (const [key] of Object.entries(entry.fields)) {
     // check if entry.fields[key] is an array
     if (Array.isArray(entry.fields[key])) {
-      fields[key] = entry.fields[key].map((item: any) => getArrayItem(item));
-    } else {
-      fields[key] = getFieldValue(entry.fields[key]);
+      fields[key] = entry.fields[key].map((item: any) => getArrayItem(item))
+    }
+    else {
+      fields[key] = getFieldValue(entry.fields[key])
     }
   }
 
-  return fields;
+  return fields
 }
 
 function getArrayItem(arrayItem: any) {
   if (arrayItem.sys.type === 'Entry') {
-    const fields = mapEntryFieldsToPage<EntryModel>(arrayItem);
-    return fields;
+    const fields = mapEntryFieldsToPage<EntryModel>(arrayItem)
+    return fields
   }
-  return getFieldValue(arrayItem);
+  return getFieldValue(arrayItem)
 }
