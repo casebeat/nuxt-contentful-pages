@@ -31,16 +31,14 @@ export default defineNuxtModule<ModuleOptions>({
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
   },
   setup(options: ModuleOptions, nuxt: any) {
+    // Private runtimeConfig
+    nuxt.options.runtimeConfig.nuxtContentfulPages = defu(nuxt.options.runtimeConfig.nuxtContentfulPages, {
+      accessToken: options.accessToken,
+      spaceId: options.spaceId,
+    })
 
-        //Private runtimeConfig
-        nuxt.options.runtimeConfig.nuxtContentfulPages = defu(nuxt.options.runtimeConfig.nuxtContentfulPages, {
-          accessToken: options.accessToken,
-          spaceId: options.spaceId,
-        })
+    const resolver = createResolver(import.meta.url)
 
-        
-    const resolver = createResolver(import.meta.url)    
-    
     addComponentsDir({
       path: resolver.resolve('runtime/components'),
     })

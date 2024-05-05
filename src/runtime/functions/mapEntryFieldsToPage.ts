@@ -1,7 +1,5 @@
 import renderContent from './renderContent'
 
-type EntryModel = {}
-
 function getFieldValue(field: any) {
   if (field?.nodeType === 'document') {
     return renderContent(field)
@@ -29,7 +27,7 @@ export const mapEntryFieldsToPage = <T>(entry: any): T => {
 
 function getArrayItem(arrayItem: any) {
   if (arrayItem.sys.type === 'Entry') {
-    const fields = mapEntryFieldsToPage<EntryModel>(arrayItem)
+    const fields = mapEntryFieldsToPage<any>(arrayItem)
     return fields
   }
   return getFieldValue(arrayItem)
