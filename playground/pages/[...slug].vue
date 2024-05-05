@@ -86,4 +86,5 @@ const page = await useFetchContentfulPageBySlug<PageModel>('standardPage')
 // Get the menu
 //
 const menu = await useFetchContentfulEntriesMapped<MenuModel>('menu')
+
 </script>
