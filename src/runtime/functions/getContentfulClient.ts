@@ -1,5 +1,4 @@
 import contentful from 'contentful'
-import { useRuntimeConfig } from '#imports'
 
 export function getContentfulClient(): contentful.ContentfulClientApi<undefined> {
   const options = useRuntimeConfig().nuxtContentfulPages
