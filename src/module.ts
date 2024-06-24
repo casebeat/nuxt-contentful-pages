@@ -1,6 +1,12 @@
 import { defineNuxtModule, addComponentsDir, addServerHandler, addImportsDir, createResolver } from '@nuxt/kit'
 import { defu } from 'defu'
 
+export { getContentfulClient } from './runtime/functions/getContentfulClient'
+export { getContentfulEntries } from './runtime/functions/getContentfulEntries'
+export { getContentfulEntryBySlug } from './runtime/functions/getContentfulEntryBySlug'
+export { mapEntryFieldsToPage } from './runtime/functions/mapEntryFieldsToPage'
+export { default as renderContent } from './runtime/functions/renderContent'
+
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
