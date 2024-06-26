@@ -1,6 +1,6 @@
 {
   "name": "nuxt-contentful-pages",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Nuxt module for contentful",
   "repository": "casebeat/nuxt-contentful-pages",
   "license": "MIT",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.3.5",
+    "@contentful/rich-text-types": "^16.3.5",
     "@nuxt/kit": "^3.11.2",
     "contentful": "^10.9.2",
     "defu": "^6.1.4"
