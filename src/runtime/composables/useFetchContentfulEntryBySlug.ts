@@ -4,7 +4,7 @@ import { useFetch, useRoute } from '#imports'
  * @param contentType target ContentType of contentful entry
  * @returns
  */
-export default async function useFetchContentfulEntryBySlug(slug: string, contentType: string) {
+export default async function useFetchContentfulEntryBySlug(contentType: string) {
   const route = useRoute()
 
   const routeSlugs = route.params.slug
