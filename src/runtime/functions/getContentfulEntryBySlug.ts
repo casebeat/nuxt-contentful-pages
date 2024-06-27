@@ -1,5 +1,5 @@
 import type { EntrySkeletonType } from 'contentful'
-import { getContentfulClient } from './getContentfulClient'
+import getContentfulClient from './getContentfulClient'
 
 /**
  * Get single contentful entry by matching slug and content type
@@ -7,7 +7,7 @@ import { getContentfulClient } from './getContentfulClient'
  * @param contentType target content type of contentful entry
  * @returns
  */
-export const getContentfulEntryBySlug = async (slug: string, contentType: string) => {
+export const getContentfulEntryBySlug = async (options: any, slug: string, contentType: string) => {
   if (!slug) {
     console.error('no slug')
     return undefined
@@ -18,7 +18,7 @@ export const getContentfulEntryBySlug = async (slug: string, contentType: string
     return undefined
   }
 
-  const client = getContentfulClient()
+  const client = getContentfulClient(options)
 
   const contentBySlug = await client.getEntries<EntrySkeletonType, string>({
     'content_type': contentType,

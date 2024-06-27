@@ -55,13 +55,9 @@
     </nav>
 
     <div
-      v-if="menu && menu[0].items"
       class="col-lg-8 mx-auto p-4 py-md-5"
     >
       <main>
-        <div v-if="false">
-          {{ menu[0].items }}
-        </div>
         <h1 class="text-body-emphasis">
           {{ page?.title }}
         </h1>
@@ -69,9 +65,12 @@
           class="fs-5 col-md-8"
           v-html="page?.body"
         />
+        <div v-if="false">
+          PAGE: {{ page }}
+        </div>
       </main>
       <footer class="pt-5 my-5 text-body-secondary border-top">
-        Created by the Casebeat Team · © 2024
+        Spwaned by Casebeat · © 2024
       </footer>
     </div>
   </div>
@@ -80,7 +79,7 @@
 <script setup lang="ts">
 import { type PageModel } from '../models/PageModel'
 import { type MenuModel } from '../models/MenuModel'
-import { useFetchContentfulPageBySlug, useFetchContentfulEntriesMapped } from '#imports'
+// import { useFetchContentfulPageBySlug, useFetchContentfulEntriesMapped } from '#imports'
 
 // Get the current page by slug
 //
@@ -89,4 +88,5 @@ const page = await useFetchContentfulPageBySlug<PageModel>('standardPage')
 // Get the menu
 //
 const menu = await useFetchContentfulEntriesMapped<MenuModel>('menu')
+// const menu = null;
 </script>

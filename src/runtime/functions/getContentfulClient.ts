@@ -1,8 +1,6 @@
 import contentful from 'contentful'
 
-export function getContentfulClient(): contentful.ContentfulClientApi<undefined> {
-  const options = useRuntimeConfig().nuxtContentfulPages
-
+export default function getContentfulClient(options: any): contentful.ContentfulClientApi<undefined> {
   if (!options) {
     throw new Error('No options found in runtime config')
   }

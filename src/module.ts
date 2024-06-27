@@ -1,7 +1,6 @@
 import { defineNuxtModule, addComponentsDir, addServerHandler, addImportsDir, createResolver } from '@nuxt/kit'
 import { defu } from 'defu'
 
-export { getContentfulClient } from './runtime/functions/getContentfulClient'
 export { getContentfulEntries } from './runtime/functions/getContentfulEntries'
 export { getContentfulEntryBySlug } from './runtime/functions/getContentfulEntryBySlug'
 export { mapEntryFieldsToPage } from './runtime/functions/mapEntryFieldsToPage'
@@ -52,6 +51,11 @@ export default defineNuxtModule<ModuleOptions>({
     addServerHandler({
       route: '/api/contentful',
       handler: resolver.resolve('runtime/server/api/contentful/index.get'),
+    })
+
+    addServerHandler({
+      route: '/api/ping',
+      handler: resolver.resolve('runtime/server/api/contentful/ping.get'),
     })
 
     addImportsDir(resolver.resolve('runtime/functions'))

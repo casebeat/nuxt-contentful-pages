@@ -1,5 +1,5 @@
 import type contentful from 'contentful'
-import { getContentfulClient } from './getContentfulClient'
+import getContentfulClient from './getContentfulClient'
 
 type getPagesQuery = {
   skip: number
@@ -8,8 +8,8 @@ type getPagesQuery = {
   excludeSlugs: string[] | undefined
 }
 
-export async function getContentfulEntries(query: getPagesQuery) {
-  const client = getContentfulClient()
+export async function getContentfulEntries(options: any, query: getPagesQuery) {
+  const client = getContentfulClient(options)
 
   const contentfulQuery = {
     skip: query.skip,
