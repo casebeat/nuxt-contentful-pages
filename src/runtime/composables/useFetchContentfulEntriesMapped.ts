@@ -1,7 +1,6 @@
- import { useFetch } from '#imports'
+import { useFetch } from '#imports'
 
 export default async function useFetchContentfulEntriesMapped<T>(contentType: string, offset: number = 0, limit: number = 20) {
-
   const query = `?contentType=${contentType}&offset=${offset}&limit=${limit}`
 
   const url = `/api/contentful${query}`
