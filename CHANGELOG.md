@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.9...v0.0.10)
+
+### 🏡 Chore
+
+- Code clean up ([21bf836](https://github.com/casebeat/nuxt-contentful-pages/commit/21bf836))
+- Updated readme with guide to getting started ([41d50b9](https://github.com/casebeat/nuxt-contentful-pages/commit/41d50b9))
+
+### ❤️ Contributors
+
+- Christian Fernandes <christian@casebeat.com>
+
 ## v0.0.9
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.8...v0.0.9)
