@@ -22,7 +22,48 @@ Install the module to your Nuxt application with one command:
 npx nuxi module add nuxt-contentful-pages
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+Then add your contentful space id and access token
+```bash
+CONTENTFUL_SPACE_ID=<YOUR_SPACE_ID>
+CONTENTFUL_ACCESS_TOKEN=<YOUR_ACCESS_TOKEN>
+```
+
+To get all wired up you need to add the NuxtPage component to your App.vue
+
+```bash
+<template>
+  <div>
+    <NuxtPage />
+  </div>
+</template>
+```
+
+and add a page /page/[...slug.vue] to handle all requests like the example below
+
+```bash
+<template>
+    
+    <div>        
+        <div v-html="page?.body"></div>        
+    </div>    
+</template>
+<script setup lang="ts">
+
+  // import your type matching the fields in your Contentful content type
+  import { type StandardPage } from '../types/StandardPage'
+
+
+  // Get the page
+  //
+  const page = await useFetchContentfulPageBySlug<StandardPage>('standardPage')
+
+</script>
+
+```bash
+
+
+
+That's it! You can now use Contentful in your Nuxt app ✨
 
 
 ## Contribution
