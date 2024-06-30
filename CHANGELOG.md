@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.8...v0.0.9)
+
+### 🩹 Fixes
+
+- Removed invalid argument ([2f8c7e0](https://github.com/casebeat/nuxt-contentful-pages/commit/2f8c7e0))
+- Added missing import ([b1130af](https://github.com/casebeat/nuxt-contentful-pages/commit/b1130af))
+
+### ❤️ Contributors
+
+- Christian Fernandes <christian@casebeat.com>
+
 ## v0.0.8
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.7...v0.0.8)
