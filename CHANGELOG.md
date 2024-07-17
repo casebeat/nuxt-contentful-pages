@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.10...v0.0.11)
+
+### 🚀 Enhancements
+
+- Composable useFetchContentfulEntries ([e0582da](https://github.com/casebeat/nuxt-contentful-pages/commit/e0582da))
+
+### 🏡 Chore
+
+- Lint ([a59903e](https://github.com/casebeat/nuxt-contentful-pages/commit/a59903e))
+
+### ❤️ Contributors
+
+- Christian Fernandes <christian@casebeat.com>
+
 ## v0.0.10
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.9...v0.0.10)

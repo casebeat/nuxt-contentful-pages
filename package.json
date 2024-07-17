@@ -1,6 +1,6 @@
 {
   "name": "nuxt-contentful-pages",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Nuxt module for contentful",
   "repository": "casebeat/nuxt-contentful-pages",
   "license": "MIT",
