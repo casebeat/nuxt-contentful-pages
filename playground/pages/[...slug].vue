@@ -68,6 +68,9 @@
         <div v-if="false">
           PAGE: {{ page }}
         </div>
+        <div>
+          MENU RAW:{{ menuRaw }}: 
+        </div>
       </main>
       <footer class="pt-5 my-5 text-body-secondary border-top">
         Spwaned by Casebeat · © 2024
@@ -88,5 +91,7 @@ const page = await useFetchContentfulPageBySlug<PageModel>('standardPage')
 // Get the menu
 //
 const menu = await useFetchContentfulEntriesMapped<MenuModel>('menu')
+
+const menuRaw = await useFetchContentfulEntries('menu')
 // const menu = null;
 </script>

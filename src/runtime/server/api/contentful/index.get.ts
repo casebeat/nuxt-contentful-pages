@@ -48,9 +48,14 @@ export default defineEventHandler(async (event) => {
     skip: skipNumber, limit: limitNumber, contentType: contentType?.toString(), excludeSlugs,
   })
 
-  // console.log('get list of pages content.items', content.items);
+  if(raw) {
+    console.log('return raw', content);
+    return content
+  }
+  console.log('get list of pages content.items', content.items);
   const renderedContent = content.items.map(item => renderEntryFields(item))
+  
   // const renderedContent = renderEntryFields(content)
-  // console.log('response content', content)
+   console.log('return renderedContent', renderedContent)
   return renderedContent
 })
