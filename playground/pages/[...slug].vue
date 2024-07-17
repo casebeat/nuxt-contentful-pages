@@ -69,7 +69,7 @@
           PAGE: {{ page }}
         </div>
         <div>
-          MENU RAW:{{ menuRaw }}: 
+          MENU RAW:{{ menuRaw }}:
         </div>
       </main>
       <footer class="pt-5 my-5 text-body-secondary border-top">

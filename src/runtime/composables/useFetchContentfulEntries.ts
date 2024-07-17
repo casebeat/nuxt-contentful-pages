@@ -4,7 +4,7 @@ export default async function useFetchContentfulEntries(contentType: string, off
   const query = `?contentType=${contentType}&offset=${offset}&limit=${limit}&raw=true`
 
   const url = `/api/contentful${query}`
-  
+
   const { data } = await useFetch(url)
 
   const response = data?.value
