@@ -28,7 +28,7 @@
           class="collapse navbar-collapse"
         >
           <ul
-            v-if="menu && menu[0].items"
+            v-if="menu && menu.items"
             class="navbar-nav me-auto"
           >
             <li class="nav-item">
@@ -40,7 +40,7 @@
             </li>
 
             <li
-              v-for="(menuItem) in menu[0].items"
+              v-for="(menuItem) in menu.items"
               :key="menuItem.id"
               class="nav-item"
             >
@@ -53,7 +53,6 @@
         </div>
       </div>
     </nav>
-
     <div
       class="col-lg-8 mx-auto p-4 py-md-5"
     >
@@ -65,12 +64,6 @@
           class="fs-5 col-md-8"
           v-html="page?.body"
         />
-        <div v-if="false">
-          PAGE: {{ page }}
-        </div>
-        <div>
-          MENU RAW:{{ menuRaw }}:
-        </div>
       </main>
       <footer class="pt-5 my-5 text-body-secondary border-top">
         Spwaned by Casebeat · © 2024
@@ -80,18 +73,60 @@
 </template>
 
 <script setup lang="ts">
-import { type PageModel } from '../models/PageModel'
-import { type MenuModel } from '../models/MenuModel'
-// import { useFetchContentfulPageBySlug, useFetchContentfulEntriesMapped } from '#imports'
+
+
+const menuRaw = await useFetchContentfulEntries('menu')
+
+import { type StandardPage } from '../types/StandardPage'
+import { type SiteMenu } from '../types/SiteMenu'
 
 // Get the current page by slug
 //
-const page = await useFetchContentfulPageBySlug<PageModel>('standardPage')
+const page = await useFetchContentfulPageBySlug<StandardPage>("standardPage")
 
 // Get the menu
 //
-const menu = await useFetchContentfulEntriesMapped<MenuModel>('menu')
+const menuResponse = await useFetchContentfulEntriesMapped<SiteMenu>('menu')
 
-const menuRaw = await useFetchContentfulEntries('menu')
-// const menu = null;
+
+/*
+
+Some examples of how to use the get content from Contentful
+
+Get the site menu by Entry ID
+
+const menuEntryId = "xxxxx"
+const menu = await useFetchContentfulEntryById<SiteMenu>(menuEntryId)
+
+export type SiteMenu = {
+  id: string
+  title: string
+  items: Array<any>
+}
+
+*/
+
+/*
+
+Get Page from Contentful
+
+const page = await useFetchContentfulPageBySlug<StandardPage>('standardPage')
+
+or
+
+const untypedPage = await useFetchContentfulEntryBySlug("standardPage")
+
+
+export type StandardPage = {
+  contentType: string
+  id: string
+  slug: string
+  teaser: string
+  title: string
+  body: string
+  maingImage: string
+}
+
+*/
+
 </script>

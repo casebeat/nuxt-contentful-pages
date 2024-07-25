@@ -31,7 +31,6 @@ export default async function useFetchContentfulPageBySlug<T>(contentType: strin
   if (!data) {
     return null
   }
-  // const page = mapEntryFieldsToPage<T>(entry)
 
   return entry as T
 }

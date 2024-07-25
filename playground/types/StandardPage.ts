@@ -1,4 +1,4 @@
-export type PageModel = {
+export type StandardPage = {
   contentType: string
   id: string
   slug: string

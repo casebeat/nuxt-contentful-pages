@@ -2,14 +2,24 @@ import { defineEventHandler, getQuery, createError } from 'h3'
 import { getContentfulEntryBySlug } from '../../../functions/getContentfulEntryBySlug'
 import { getContentfulEntries } from '../../../functions/getContentfulEntries'
 import { renderEntryFields } from '../../../functions/renderEntryFields'
+import { getContentfulEntryById } from '../../../functions/getContentfulEntryById'
 import { useRuntimeConfig } from '#imports'
 
 export default defineEventHandler(async (event) => {
   const options = useRuntimeConfig().nuxtContentfulPages
 
   const {
-    slug, contentType, excludeSlug, skip, limit, raw,
+    entryId,slug, contentType, excludeSlug, skip, limit, raw,
   } = getQuery(event)
+
+  if(entryId){
+    const content = await getContentfulEntryById(options, entryId.toString())
+    if (raw) {
+      return content
+    }
+    const page = renderEntryFields(content)
+    return page;
+  }
 
   if (!contentType) {
     throw createError({
@@ -41,7 +51,6 @@ export default defineEventHandler(async (event) => {
   }
 
   // Get a list of pages
-  // console.log('get list of pages')
   const skipNumber = skip ? Number.parseInt(skip.toString()) : 0
   const limitNumber = limit ? Number.parseInt(limit.toString()) : 20
   const content = await getContentfulEntries(options, {
@@ -49,13 +58,9 @@ export default defineEventHandler(async (event) => {
   })
 
   if (raw) {
-    console.log('return raw', content)
     return content
   }
-  console.log('get list of pages content.items', content.items)
+  
   const renderedContent = content.items.map(item => renderEntryFields(item))
-
-  // const renderedContent = renderEntryFields(content)
-  console.log('return renderedContent', renderedContent)
   return renderedContent
 })
