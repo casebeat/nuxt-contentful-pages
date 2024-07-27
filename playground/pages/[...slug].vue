@@ -73,21 +73,18 @@
 </template>
 
 <script setup lang="ts">
-
-
-const menuRaw = await useFetchContentfulEntries('menu')
-
 import { type StandardPage } from '../types/StandardPage'
 import { type SiteMenu } from '../types/SiteMenu'
 
 // Get the current page by slug
 //
-const page = await useFetchContentfulPageBySlug<StandardPage>("standardPage")
+const page = await useFetchContentfulPageBySlug<StandardPage>('standardPage')
 
 // Get the menu
 //
 const menuResponse = await useFetchContentfulEntriesMapped<SiteMenu>('menu')
 
+const menu = menuResponse[0]
 
 /*
 
@@ -116,7 +113,6 @@ or
 
 const untypedPage = await useFetchContentfulEntryBySlug("standardPage")
 
-
 export type StandardPage = {
   contentType: string
   id: string
@@ -128,5 +124,4 @@ export type StandardPage = {
 }
 
 */
-
 </script>

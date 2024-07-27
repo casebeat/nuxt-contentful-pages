@@ -1,7 +1,6 @@
 import type contentful from 'contentful'
 import getContentfulClient from './getContentfulClient'
 
-
 export async function getContentfulEntryById(options: any, entryId: string) {
   const client = getContentfulClient(options)
 

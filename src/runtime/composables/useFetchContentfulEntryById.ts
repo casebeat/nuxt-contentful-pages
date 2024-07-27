@@ -5,7 +5,6 @@ import { useFetch } from '#imports'
  * @returns
  */
 export default async function useFetchContentfulEntryById<T>(entryId: string): Promise<T | null> {
- 
   const query = `?entryId=${entryId}`
 
   const url = `/api/contentful${query}`

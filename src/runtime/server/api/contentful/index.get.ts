@@ -9,16 +9,16 @@ export default defineEventHandler(async (event) => {
   const options = useRuntimeConfig().nuxtContentfulPages
 
   const {
-    entryId,slug, contentType, excludeSlug, skip, limit, raw,
+    entryId, slug, contentType, excludeSlug, skip, limit, raw,
   } = getQuery(event)
 
-  if(entryId){
+  if (entryId) {
     const content = await getContentfulEntryById(options, entryId.toString())
     if (raw) {
       return content
     }
     const page = renderEntryFields(content)
-    return page;
+    return page
   }
 
   if (!contentType) {
@@ -60,7 +60,7 @@ export default defineEventHandler(async (event) => {
   if (raw) {
     return content
   }
-  
+
   const renderedContent = content.items.map(item => renderEntryFields(item))
   return renderedContent
 })
