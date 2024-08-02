@@ -3,6 +3,7 @@ declare module '@nuxt/schema' {
     nuxtContentfulPages: {
       spaceId: string
       accessToken: string
+      internalHosts: Array<string>
     }
   }
 }

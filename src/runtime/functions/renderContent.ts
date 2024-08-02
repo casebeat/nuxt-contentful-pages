@@ -1,8 +1,9 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import enrichMarkup from './enrichMarkup'
 
-export default function renderContent(content: any) {
-  const options = {
+export default function renderContent(content: any, renderOptions: any = {}) {
+  const documentToHtmlStringOptions = {
     renderNode: {
       // render hyperlink
       [INLINES.ENTRY_HYPERLINK]: (node) => {
@@ -19,7 +20,7 @@ export default function renderContent(content: any) {
   }
 
   // Convert the rich text field to HTML
-  const html = documentToHtmlString(content, options)
+  const html = documentToHtmlString(content, documentToHtmlStringOptions)
 
-  return html
+  return enrichMarkup(html, renderOptions)
 }

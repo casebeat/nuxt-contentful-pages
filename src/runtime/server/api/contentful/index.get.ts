@@ -7,6 +7,9 @@ import { useRuntimeConfig } from '#imports'
 
 export default defineEventHandler(async (event) => {
   const options = useRuntimeConfig().nuxtContentfulPages
+  const renderOptions: any = {
+    internalHosts: options.internalHosts,
+  }
 
   const {
     entryId, slug, contentType, excludeSlug, skip, limit, raw,
@@ -17,7 +20,8 @@ export default defineEventHandler(async (event) => {
     if (raw) {
       return content
     }
-    const page = renderEntryFields(content)
+
+    const page = renderEntryFields(content, renderOptions)
     return page
   }
 
@@ -46,7 +50,7 @@ export default defineEventHandler(async (event) => {
     if (raw) {
       return content
     }
-    const page = renderEntryFields(content)
+    const page = renderEntryFields(content, options)
     return page
   }
 
@@ -61,6 +65,6 @@ export default defineEventHandler(async (event) => {
     return content
   }
 
-  const renderedContent = content.items.map(item => renderEntryFields(item))
+  const renderedContent = content.items.map(item => renderEntryFields(item, renderOptions))
   return renderedContent
 })

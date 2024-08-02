@@ -23,6 +23,14 @@ export interface ModuleOptions {
    * @docs https://www.contentful.com/developers/docs/references/authentication/
    */
   accessToken: string
+
+  /**
+   * Internal hosts that will not get target="_blank" added to links
+   * @default process.env.INTERNAL_HOSTS
+   * @type string[]
+   * @docs
+   */
+  internalHosts: string[]
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -34,12 +42,15 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     spaceId: process.env.CONTENTFUL_SPACE_ID as string,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
+    internalHosts: process.env.INTERNAL_HOSTS ? process.env.INTERNAL_HOSTS.split(',').map(host => host.trim()) : [],
+
   },
   setup(options: ModuleOptions, nuxt: any) {
     // Private runtimeConfig
     nuxt.options.runtimeConfig.nuxtContentfulPages = defu(nuxt.options.runtimeConfig.nuxtContentfulPages, {
       accessToken: options.accessToken,
       spaceId: options.spaceId,
+      internalHosts: options.internalHosts,
     })
 
     const resolver = createResolver(import.meta.url)
