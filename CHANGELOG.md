@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.9.1
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.11...v0.9.1)
+
+### 🚀 Enhancements
+
+- GetContentfulEntryById ([586356c](https://github.com/casebeat/nuxt-contentful-pages/commit/586356c))
+
+### 🏡 Chore
+
+- Code clean up ([00da684](https://github.com/casebeat/nuxt-contentful-pages/commit/00da684))
+- Code clean up ([3f60a6d](https://github.com/casebeat/nuxt-contentful-pages/commit/3f60a6d))
+
+### ❤️ Contributors
+
+- Christian <christian@casebeat.com>
+
 ## v0.0.11
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.10...v0.0.11)
