@@ -1,7 +1,25 @@
 import { useFetch } from '#imports'
 
-export default async function useFetchContentfulEntriesMapped<T>(contentType: string, offset: number = 0, limit: number = 20): Promise<T[]> {
-  const query = `?contentType=${contentType}&offset=${offset}&limit=${limit}`
+export default async function useFetchContentfulEntriesMapped<T>(
+  contentType: string,
+  offset: number = 0,
+  limit: number = 20,
+  filterParams: Record<string, string>[] | undefined = undefined): Promise<T[]> {
+  let query = `?contentType=${contentType}&offset=${offset}&limit=${limit}`
+
+  if (filterParams) {
+    // iterate over filter
+    for (const filter of filterParams) {
+      for (const key in filter) {
+        if (Object.prototype.hasOwnProperty.call(filter, key)) {
+          const value = filter[key]
+          if (value) {
+            query = query.concat(`&filter.${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+          }
+        }
+      }
+    }
+  }
 
   const url = `/api/contentful${query}`
 

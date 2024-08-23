@@ -6,6 +6,6 @@
     "playground",
   ],
   "compilerOptions": {
-    "noImplicitAny": false,
+    "noImplicitAny": false,    
   }  
 }
