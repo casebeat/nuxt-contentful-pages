@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.9.2
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.9.1...v0.9.2)
+
+### 🚀 Enhancements
+
+- Added support for query filters ([3618b39](https://github.com/casebeat/nuxt-contentful-pages/commit/3618b39))
+
+### 🩹 Fixes
+
+- Handle fields with string arrays ([7eaf14c](https://github.com/casebeat/nuxt-contentful-pages/commit/7eaf14c))
+
+### ❤️ Contributors
+
+- Christian Fernandes <christian@casebeat.com>
+
 ## v0.9.1
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.0.11...v0.9.1)
