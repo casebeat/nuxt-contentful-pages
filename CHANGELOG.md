@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v0.9.3
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.9.2...v0.9.3)
+
 ## v0.9.2
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.9.1...v0.9.2)
