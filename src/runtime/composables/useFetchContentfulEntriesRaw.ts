@@ -1,10 +1,8 @@
-import { useFetch } from '#imports'
-
-export default async function useFetchContentfulEntriesMapped<T>(
+export default async function useFetchContentfulEntriesRaw(
   contentType: string,
   offset: number = 0,
   limit: number = 20,
-  filterParams: Record<string, string>[] | undefined = undefined): Promise<T[]> {
+  filterParams: Record<string, string>[] | undefined = undefined) {
   let query = `?contentType=${contentType}&offset=${offset}&limit=${limit}`
 
   if (filterParams) {
@@ -21,12 +19,10 @@ export default async function useFetchContentfulEntriesMapped<T>(
     }
   }
 
-  const url = `/api/contentful${query}`
+  const url = `/api/contentful${query}&raw=true`
 
-  const { data } = await useFetch(url)
-
-  const response = data?.value
+  const response = await $fetch(url)
 
   // return items
-  return response as T[]
+  return response
 }

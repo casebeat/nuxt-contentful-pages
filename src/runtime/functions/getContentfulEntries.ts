@@ -34,7 +34,9 @@ export async function getContentfulEntries(options: any, query: getEntriesQuery)
 
   if (query.filter !== undefined) {
     Object.keys(query.filter).forEach((key) => {
-      contentfulQuery[key] = query.filter[key]
+      if (query.filter !== undefined) {
+        contentfulQuery[key] = query.filter[key]
+      }
     })
   }
 

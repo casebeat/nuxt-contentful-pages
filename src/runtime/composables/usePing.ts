@@ -1,7 +1,5 @@
-import { useFetch } from '#imports'
-
 export default async function usePing() {
-  const { data } = await useFetch('/api/ping')
+  const data = await $fetch('/api/ping')
 
   return data
 }

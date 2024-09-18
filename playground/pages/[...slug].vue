@@ -78,11 +78,11 @@ import { type SiteMenu } from '../types/SiteMenu'
 
 // Get the current page by slug
 //
-const page = await useFetchContentfulPageBySlug<StandardPage>('standardPage')
+const page = await useFetchContentfulEntryBySlug<StandardPage>('standardPage')
 
 // Get the menu
 //
-const menuResponse = await useFetchContentfulEntriesMapped<SiteMenu>('menu')
+const menuResponse = await useFetchContentfulEntries<SiteMenu>('menu')
 
 const menu = menuResponse[0]
 
@@ -107,11 +107,11 @@ export type SiteMenu = {
 
 Get Page from Contentful
 
-const page = await useFetchContentfulPageBySlug<StandardPage>('standardPage')
+const page = await useFetchContentfulEntryBySlug<StandardPage>('standardPage')
 
 or
 
-const untypedPage = await useFetchContentfulEntryBySlug("standardPage")
+const untypedPage = await useFetchContentfulEntryBySlugUntyped("standardPage")
 
 export type StandardPage = {
   contentType: string

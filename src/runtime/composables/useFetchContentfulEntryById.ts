@@ -1,4 +1,3 @@
-import { useFetch } from '#imports'
 /**
  * Get entry from contentful by slug
  * @param contentType target ContentType of contentful entry
@@ -9,11 +8,9 @@ export default async function useFetchContentfulEntryById<T>(entryId: string): P
 
   const url = `/api/contentful${query}`
 
-  const { data } = await useFetch(url)
+  const entry = await $fetch(url)
 
-  const entry = data.value
-
-  if (!data) {
+  if (!entry) {
     return null
   }
 

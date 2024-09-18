@@ -1,11 +1,10 @@
-// import { mapEntryFieldsToPage } from '../functions/mapEntryFieldsToPage'
-import { useFetch, useRoute } from '#imports'
+import { useRoute } from '#imports'
 /**
  * Get entry from contentful by slug
  * @param contentType target ContentType of contentful entry
  * @returns
  */
-export default async function useFetchContentfulPageBySlug<T>(contentType: string): Promise<T | null> {
+export default async function useFetchContentfulEntryBySlugUntyped(contentType: string) {
   const route = useRoute()
 
   const routeSlugs = route.params.slug
@@ -24,13 +23,7 @@ export default async function useFetchContentfulPageBySlug<T>(contentType: strin
 
   const url = `/api/contentful${query}`
 
-  const { data } = await useFetch(url)
+  const entry = await $fetch(url)
 
-  const entry = data.value
-
-  if (!data) {
-    return null
-  }
-
-  return entry as T
+  return entry
 }
