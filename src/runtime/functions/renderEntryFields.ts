@@ -9,12 +9,10 @@ function getFieldValue(field: any) {
     return getAssetFields(field)
   }
 
-
   return field
 }
 
 export const renderEntryFields = (entry: any): any => {
- 
   if (!entry) return {}
 
   const fields = {}
@@ -32,33 +30,31 @@ export const renderEntryFields = (entry: any): any => {
 }
 
 function getArrayItem(arrayItem: any) {
-  
   // if arrayItem is string, return it
   if (typeof arrayItem === 'string') {
     return arrayItem
   }
-  
+
   if (arrayItem.sys.type === 'Entry') {
     const fields = renderEntryFields(arrayItem)
     return fields
   }
 
   if (arrayItem.sys.type === 'Asset') {
-
     const fields = getAssetFields(arrayItem)
     return fields
   }
   return getFieldValue(arrayItem)
 }
 
-function getAssetFields(assetItem){
+function getAssetFields(assetItem) {
   const fields = {
     title: assetItem.fields.title,
     description: assetItem.fields.description,
     url: assetItem.fields.file.url,
     details: assetItem.fields.file.details,
     fileName: assetItem.fields.file.fileName,
-    contentType: assetItem.fields.file.contentType
+    contentType: assetItem.fields.file.contentType,
   }
 
   return fields

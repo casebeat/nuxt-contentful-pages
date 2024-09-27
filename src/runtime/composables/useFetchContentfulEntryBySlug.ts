@@ -10,7 +10,7 @@ export default async function useFetchContentfulEntryBySlug<T>(contentType: stri
 
   const routeSlugs = route.params.slug
 
-//  let slug = ''
+  //  let slug = ''
 
   if (!routeSlugs) {
     slug = 'index'
