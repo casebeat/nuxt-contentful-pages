@@ -1,8 +1,9 @@
 import { useRoute, useAsyncData } from '#imports'
+
 /**
- * Get entry from contentful by slug
- * @param contentType target ContentType of contentful entry
- * @returns
+ * Fetches an entry from Contentful by its slug.
+ * @param contentType - The target ContentType of the Contentful entry.
+ * @returns A promise that resolves to the Contentful entry data fetched by the given slug.
  */
 export default async function useFetchContentfulEntryBySlugUntyped(contentType: string) {
   const route = useRoute()

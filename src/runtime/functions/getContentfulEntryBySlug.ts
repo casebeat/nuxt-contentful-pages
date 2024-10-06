@@ -2,10 +2,12 @@ import type { EntrySkeletonType } from 'contentful'
 import getContentfulClient from './getContentfulClient'
 
 /**
- * Get single contentful entry by matching slug and content type
- * @param slug target slug of contentful entry
- * @param contentType target content type of contentful entry
- * @returns
+ * Fetches a Contentful entry by its slug and content type.
+ *
+ * @param {any} options - Options for configuring the Contentful client.
+ * @param {string} slug - The slug of the Contentful entry to fetch.
+ * @param {string} contentType - The content type of the Contentful entry.
+ * @returns {Promise<EntrySkeletonType | undefined>} A promise that resolves to the fetched Contentful entry or `undefined` if not found or if required parameters are missing.
  */
 export const getContentfulEntryBySlug = async (options: any, slug: string, contentType: string) => {
   if (!slug) {
