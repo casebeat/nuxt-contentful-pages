@@ -1,5 +1,4 @@
-// import { mapEntryFieldsToPage } from '../functions/mapEntryFieldsToPage'
-import { useRoute } from '#imports'
+import { useRoute, useAsyncData } from '#imports'
 /**
  * Get entry from contentful by slug
  * @param contentType target ContentType of contentful entry
@@ -9,8 +8,6 @@ export default async function useFetchContentfulEntryBySlug<T>(contentType: stri
   const route = useRoute()
 
   const routeSlugs = route.params.slug
-
-  //  let slug = ''
 
   if (!routeSlugs) {
     slug = 'index'
@@ -24,11 +21,5 @@ export default async function useFetchContentfulEntryBySlug<T>(contentType: stri
 
   const url = `/api/contentful${query}`
 
-  const entry = await $fetch(url)
-
-  if (!entry) {
-    return null
-  }
-
-  return entry as T
+  return useAsyncData(url, () => $fetch(url))
 }

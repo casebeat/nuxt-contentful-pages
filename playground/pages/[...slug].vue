@@ -76,15 +76,21 @@
 import { type StandardPage } from '../types/StandardPage'
 import { type SiteMenu } from '../types/SiteMenu'
 
+const menuId = undefined // Site Menu Entry ID from Contentful
+
 // Get the current page by slug
 //
-const page = await useFetchContentfulEntryBySlug<StandardPage>('standardPage')
+const { data: page } = await useFetchContentfulEntryBySlug<StandardPage>('standardPage')
 
 // Get the menu
 //
-const menuResponse = await useFetchContentfulEntries<SiteMenu>('menu')
+let menu: SiteMenu | undefined = undefined
 
-const menu = menuResponse[0]
+// Get the menu
+if (menuId) {
+  const { data } = await useFetchContentfulEntryById<SiteMenu>(menuId)
+  menu = data.value
+}
 
 /*
 
@@ -93,7 +99,7 @@ Some examples of how to use the get content from Contentful
 Get the site menu by Entry ID
 
 const menuEntryId = "xxxxx"
-const menu = await useFetchContentfulEntryById<SiteMenu>(menuEntryId)
+const { data: menu }= await useFetchContentfulEntryById<SiteMenu>(menuEntryId)
 
 export type SiteMenu = {
   id: string
@@ -107,11 +113,11 @@ export type SiteMenu = {
 
 Get Page from Contentful
 
-const page = await useFetchContentfulEntryBySlug<StandardPage>('standardPage')
+const { data: page } = await useFetchContentfulEntryBySlug<StandardPage>('standardPage')
 
 or
 
-const untypedPage = await useFetchContentfulEntryBySlugUntyped("standardPage")
+const { data: untypedPage } = await useFetchContentfulEntryBySlugUntyped("standardPage")
 
 export type StandardPage = {
   contentType: string

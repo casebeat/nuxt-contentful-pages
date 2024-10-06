@@ -4,19 +4,6 @@ import type contentful from 'contentful'
 import type { getEntriesQuery } from '../types/contentfulTypes'
 import getContentfulClient from './getContentfulClient'
 
-// type FilterQuery = {
-//   [key: string]: string | string[];
-// };
-
-// type getEntriesQuery = {
-//   skip: number
-//   limit: number
-//   //orderBy: string | undefined
-//   contentType: string
-//   excludeSlugs: string[] | undefined
-//   filter: FilterQuery | undefined
-// }
-
 export async function getContentfulEntries(options: any, query: getEntriesQuery) {
   const client = getContentfulClient(options)
 

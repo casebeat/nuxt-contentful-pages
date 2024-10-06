@@ -1,3 +1,5 @@
+import { useAsyncData } from '#imports'
+
 export default async function useFetchContentfulEntries<T>(
   contentType: string,
   offset: number = 0,
@@ -21,8 +23,5 @@ export default async function useFetchContentfulEntries<T>(
 
   const url = `/api/contentful${query}`
 
-  const response = await $fetch(url)
-
-  // return items
-  return response as T[]
+  return useAsyncData(url, () => $fetch(url))
 }

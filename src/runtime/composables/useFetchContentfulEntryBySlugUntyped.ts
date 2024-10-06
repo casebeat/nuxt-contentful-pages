@@ -1,4 +1,4 @@
-import { useRoute } from '#imports'
+import { useRoute, useAsyncData } from '#imports'
 /**
  * Get entry from contentful by slug
  * @param contentType target ContentType of contentful entry
@@ -23,7 +23,5 @@ export default async function useFetchContentfulEntryBySlugUntyped(contentType: 
 
   const url = `/api/contentful${query}`
 
-  const entry = await $fetch(url)
-
-  return entry
+  return useAsyncData(url, () => $fetch(url))
 }

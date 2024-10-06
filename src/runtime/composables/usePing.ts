@@ -1,5 +1,5 @@
-export default async function usePing() {
-  const data = await $fetch('/api/ping')
+import { useAsyncData } from '#imports'
 
-  return data
+export default async function usePing() {
+  return useAsyncData('/api/ping', () => $fetch('/api/ping'))
 }

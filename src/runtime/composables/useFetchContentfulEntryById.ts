@@ -1,3 +1,4 @@
+import { useAsyncData } from '#imports'
 /**
  * Get entry from contentful by slug
  * @param contentType target ContentType of contentful entry
@@ -8,11 +9,5 @@ export default async function useFetchContentfulEntryById<T>(entryId: string): P
 
   const url = `/api/contentful${query}`
 
-  const entry = await $fetch(url)
-
-  if (!entry) {
-    return null
-  }
-
-  return entry as T
+  return useAsyncData(url, () => $fetch(url))
 }
