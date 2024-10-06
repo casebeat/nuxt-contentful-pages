@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.9.5
+
+[compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.9.4...v0.9.5)
+
+### 🏡 Chore
+
+- Code clean up ([28414fc](https://github.com/casebeat/nuxt-contentful-pages/commit/28414fc))
+
+### ❤️ Contributors
+
+- Christian Fernandes <christian@casebeat.com>
+
 ## v0.9.4
 
 [compare changes](https://github.com/casebeat/nuxt-contentful-pages/compare/v0.9.3...v0.9.4)
